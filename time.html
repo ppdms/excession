@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+
+        <style>
+                div {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                }
+
+                p {
+                        font-family: 'Inter', sans-serif;
+                        font-size: 20vw;
+                }
+        </style>
+        <script>
+                const percentage = document.getElementById('percentage');
+
+                function getSeconds() {
+                        const d = new Date();
+                        let hour = d.getHours();
+                        let minutes = d.getMinutes();
+                        let seconds = d.getSeconds();
+                        return hour * 3600 + minutes * 60 + seconds;
+                }
+
+                const interval = setInterval(function () {
+                        document.getElementById("percentage").innerHTML = (getSeconds() / 864).toString().slice(0, 2).concat("%");
+                }, 1000);
+
+
+        </script>
+
+</head>
+
+<body>
+
+        <div>
+                <p id="percentage"></p>
+        </div>
+
+</body>
+
+</html>

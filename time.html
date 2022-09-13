@@ -20,8 +20,6 @@
                 }
         </style>
         <script>
-                const percentage = document.getElementById('percentage');
-
                 function getSeconds() {
                         const d = new Date();
                         let hour = d.getHours();
@@ -31,7 +29,12 @@
                 }
 
                 const interval = setInterval(function () {
-                        document.getElementById("percentage").innerHTML = (getSeconds() / 864).toString().slice(0, 2).concat("%");
+                        if (getSeconds() < 28800) {
+                                document.getElementById("percentage").innerHTML = "Go to sleep.";
+                        }
+                        else {
+                                document.getElementById("percentage").innerHTML = ((getSeconds()-28800) / 576).toString().slice(0, 2).concat("%");
+                        }
                 }, 1000);
 
 
